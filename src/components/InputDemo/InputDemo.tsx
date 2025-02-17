@@ -9,7 +9,15 @@ export default function InputDemo() {
 
 	return (
 		<>
-			<input type="text" onChange={handleChange} value={inputValue} />
+			<label htmlFor="inputDemo">Controlled component: </label>
+			<input
+				id="inputDemo"
+				type="text"
+				onChange={handleChange}
+				value={inputValue}
+				placeholder="Write somethings please..."
+			/>
+
 			<p>You wrote: {inputValue}</p>
 		</>
 	);

@@ -4,7 +4,11 @@ export default function AnimalList() {
 	const [animals, setAnimals] = useState<string[]>(["gorilla", "giraff"]);
 	const [inputAnimal, setInputAnimal] = useState("");
 
-	const handleClick = () => {
+	const deleteAnimal = (animal: string) => {
+		setAnimals(animals.filter((a) => a !== animal));
+	};
+
+	const addAnimal = () => {
 		// när vi klickar på knappen ska vi lägga till ett djur till arrayen
 		// vi får inte göra så här -> animals.push(inputAnimal);
 		setAnimals([...animals, inputAnimal]);
@@ -21,10 +25,19 @@ export default function AnimalList() {
 					setInputAnimal(e.target.value);
 				}}
 			/>
-			<button onClick={handleClick}>Add Animal</button>
+			<button onClick={addAnimal}>Add Animal</button>
 			<ul>
 				{animals.map((animal) => (
-					<li key={animal}>{animal}</li>
+					<li key={animal}>
+						{animal}{" "}
+						<button
+							onClick={() => {
+								deleteAnimal(animal);
+							}}
+						>
+							Delete
+						</button>
+					</li>
 				))}
 			</ul>
 		</>

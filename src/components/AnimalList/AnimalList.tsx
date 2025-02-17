@@ -4,6 +4,10 @@ export default function AnimalList() {
 	const [animals, setAnimals] = useState<string[]>(["gorilla", "giraff"]);
 	const [inputAnimal, setInputAnimal] = useState("");
 
+	const editAnimal = (animal: string) => {
+		setAnimals(animals.map((a) => (a === animal ? inputAnimal : a)));
+	};
+
 	const deleteAnimal = (animal: string) => {
 		setAnimals(animals.filter((a) => a !== animal));
 	};
@@ -36,7 +40,8 @@ export default function AnimalList() {
 							}}
 						>
 							Delete
-						</button>
+						</button>{" "}
+						<button onClick={() => editAnimal(animal)}>Change me</button>
 					</li>
 				))}
 			</ul>

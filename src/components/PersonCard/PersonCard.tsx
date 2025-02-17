@@ -8,6 +8,11 @@ type Person = {
 export default function PersonCard() {
 	const [person, setPerson] = useState<Person>({ name: "", age: 0 });
 
+	const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+		const { name, value } = e.target;
+		setPerson({ ...person, [name]: value });
+	};
+
 	const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
 		// vi får inte göra så här: person.name = e.target.value;
 		setPerson({ ...person, name: e.target.value });
@@ -28,17 +33,19 @@ export default function PersonCard() {
 			<input
 				type="text"
 				id="personname"
+				name="name"
 				placeholder="write your name..."
 				value={person.name}
-				onChange={handleNameChange}
+				onChange={handleChange}
 			/>
 			<label htmlFor="personAge">Age: </label>
 			<input
 				type="text"
 				id="personage"
+				name="age"
 				placeholder="write your age..."
 				value={person.age}
-				onChange={handleAgeChange}
+				onChange={handleChange}
 			/>
 		</>
 	);

@@ -2,6 +2,7 @@ import InputDemo from "./components/InputDemo/InputDemo";
 import "./App.scss";
 import FilterableProductTable from "./components/FilterableProductTable/FilterableProductTable";
 import PersonCard from "./components/PersonCard/PersonCard";
+import AnimalList from "./components/AnimalList/AnimalList";
 
 const PRODUCTS = [
 	{ category: "Fruits", price: "$1", stocked: true, name: "Apple" },
@@ -17,9 +18,10 @@ function App() {
 		<>
 			<h1>🦹 super-villains-react 🦹</h1>
 			<p>a demo for students of React</p>
-			<InputDemo />
-			<FilterableProductTable products={PRODUCTS} />
-			<PersonCard />
+			{/* <InputDemo />
+			<FilterableProductTable products={PRODUCTS} /> 
+			<PersonCard />*/}
+			<AnimalList />
 		</>
 	);
 }
